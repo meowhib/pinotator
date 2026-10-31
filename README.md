@@ -10,7 +10,40 @@ No cloud service, telemetry, or configuration database.
 
 Requires **Node.js 22+**. Install Pi separately and make its `pi` command available on your PATH. Static inspection is available without running extensions or connecting to MCP servers.
 
-### From GitHub (available now)
+### Install with npm or pnpm
+
+Use **[`@meowhib/pinotator`](https://www.npmjs.com/package/@meowhib/pinotator)**. The unscoped `pinotator` package is a different project.
+
+```sh
+npm install --global @meowhib/pinotator
+# or
+pnpm add --global @meowhib/pinotator
+```
+
+Both use the npm registry. The package includes the compiled CLI and browser assets; npm users do not need pnpm, TypeScript, or a build step.
+
+Version **0.1.0** is available on npm and as a [GitHub preview release](https://github.com/meowhib/pinotator/releases/tag/v0.1.0).
+
+Start with inspection only:
+
+```sh
+cd /path/to/your/project
+pinotator --read-only
+```
+
+Omit `--read-only` when you are ready to stage edits. Review diffs before Apply.
+
+### GitHub release archive
+
+Download `meowhib-pinotator-0.1.0.tgz` from the [0.1.0 preview release](https://github.com/meowhib/pinotator/releases/tag/v0.1.0), then install the downloaded file locally:
+
+```sh
+npm install --global ./meowhib-pinotator-0.1.0.tgz
+# or
+pnpm add --global ./meowhib-pinotator-0.1.0.tgz
+```
+
+### Build from source
 
 Source development uses **pnpm 12.4.2**, pinned in `package.json`.
 
@@ -19,27 +52,9 @@ git clone https://github.com/meowhib/pinotator.git
 cd pinotator
 pnpm install --frozen-lockfile
 pnpm add --global "link:$PWD"
-cd /path/to/your/project
-pinotator --read-only
 ```
 
 Installation builds the CLI and browser assets. If pnpm is not installed, install the pinned version with `npm install --global pnpm@12.4.2`. For global pnpm commands, ensure `PNPM_HOME` is on PATH (`pnpm setup` can configure it).
-
-### From npm
-
-The package name is **`@meowhib/pinotator`**. The unscoped `pinotator` package is a different project.
-
-Choose one package manager:
-
-```sh
-npm install --global @meowhib/pinotator
-# or
-pnpm add --global @meowhib/pinotator
-```
-
-Both use the npm registry. Published packages include compiled assets; consumers do not need pnpm, TypeScript, or a build step when installing with npm.
-
-Run `pinotator --read-only` in your project to begin with inspection only. Omit `--read-only` when you are ready to stage edits.
 
 ## Usage
 
