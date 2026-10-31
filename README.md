@@ -25,11 +25,11 @@ pinotator --read-only
 
 Installation builds the CLI and browser assets. If pnpm is not installed, install the pinned version with `npm install --global pnpm@12.4.2`. For global pnpm commands, ensure `PNPM_HOME` is on PATH (`pnpm setup` can configure it).
 
-### From npm (after the first registry release)
+### From npm
 
-The intended package name is **`@meowhib/pinotator`**. Registry publication is pending; the unscoped `pinotator` package is a different project.
+The package name is **`@meowhib/pinotator`**. The unscoped `pinotator` package is a different project.
 
-Once published, choose one package manager:
+Choose one package manager:
 
 ```sh
 npm install --global @meowhib/pinotator
@@ -106,7 +106,7 @@ pnpm login                      # authenticate an npm account that owns the meow
 pnpm publish --access public    # only after reviewing the archive and version
 ```
 
-The first scoped registry release still needs npm authentication/ownership. Do not publish the unscoped package name. For subsequent releases, increment `package.json`'s version and publish that reviewed version; registry versions cannot be overwritten.
+Publishing requires npm authentication and ownership of the `meowhib` scope. Do not publish the unscoped package name. For subsequent releases, increment `package.json`'s version and publish that reviewed version; registry versions cannot be overwritten.
 
 ## License
 
