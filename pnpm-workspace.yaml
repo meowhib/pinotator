@@ -1,0 +1,9 @@
+packages:
+  - .
+
+engineStrict: true
+
+# Only esbuild needs a dependency install script. Do not implicitly trust others.
+allowBuilds:
+  '@parcel/watcher': false
+  esbuild: true

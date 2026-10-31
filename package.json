@@ -1,0 +1,87 @@
+{
+  "name": "@meowhib/pinotator",
+  "version": "0.1.0",
+  "description": "Local-first Pi configuration manager",
+  "homepage": "https://github.com/meowhib/pinotator#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meowhib/pinotator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/meowhib/pinotator/issues"
+  },
+  "keywords": [
+    "pi",
+    "configuration",
+    "dashboard",
+    "local-first",
+    "cli"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "type": "module",
+  "packageManager": "pnpm@12.4.2",
+  "engines": {
+    "node": ">=22"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.4.2",
+      "onFail": "error"
+    }
+  },
+  "bin": {
+    "pinotator": "dist/bin/pinotator.js"
+  },
+  "files": [
+    "dist/",
+    "integrations/*.ts"
+  ],
+  "scripts": {
+    "start": "node dist/bin/pinotator.js --no-open",
+    "dev": "pnpm run build && tsx bin/pinotator.ts --no-open",
+    "format": "prettier --write \"{bin,src,web,integrations,scripts}/**/*.{ts,tsx}\" \"*.{ts,json}\" \"public/**/*.{html,css}\"",
+    "format:check": "prettier --check \"{bin,src,web,integrations,scripts}/**/*.{ts,tsx}\" \"*.{ts,json}\" \"public/**/*.{html,css}\"",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "build": "pnpm run typecheck && tsx scripts/build.ts",
+    "prepare": "pnpm run build",
+    "prepack": "pnpm run format:check && pnpm run lint && pnpm run build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "^4.0.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "diff": "^8.0.4",
+    "jsonc-parser": "^3.3.1",
+    "lucide-react": "^1.64.0",
+    "radix-ui": "^1.8.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwind-merge": "^3.7.0",
+    "tw-animate-css": "^1.4.0",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "@types/diff": "^7.0.2",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0",
+    "jiti": "^2.7.0",
+    "prettier": "^3.9.10",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.1"
+  }
+}

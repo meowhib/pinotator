@@ -1,0 +1,20 @@
+node_modules/
+package-lock.json
+npm-shrinkwrap.json
+yarn.lock
+bun.lock
+bun.lockb
+dist/
+.pi/
+.agents/
+docs/
+# Keep internal notes/specifications local. Public documentation is limited to README and license.
+/*.md
+!/README.md
+!/LICENSE.md
+coverage/
+*.tsbuildinfo
+*.tgz
+.env
+.env.*
+!.env.example
